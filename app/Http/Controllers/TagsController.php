@@ -2,8 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use Session;
 use App\Tag;
+use Session;
+use App\Post;
+use App\Category;
 use Illuminate\Http\Request;
 
 

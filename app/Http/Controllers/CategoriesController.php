@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+
 use Session;
+use App\Tag;
+use App\Post;
 use App\Category;
 use Illuminate\Http\Request;
 
@@ -97,7 +100,16 @@ class CategoriesController extends Controller
     public function destroy($id)
     {
         $category = Category::find($id);
+
+        // delete all posts with categories attached when deleting
+        // a category:  error : Class App\Posts not found
+        //
+        foreach($category->posts as $post){
+            $post->forceDelete();
+        }
+
         $category->delete();
+
         Session::flash('success', 'Category deleted successfully');
 
         return redirect()->route('categories');

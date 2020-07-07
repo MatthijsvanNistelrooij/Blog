@@ -17,13 +17,15 @@
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 
+    @yield('styles')
+
 </head>
 <body>
 <div id="app">
 <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
     <div class="container">
         <a class="navbar-brand" href="{{ url('/') }}">
-            <i class="fa fa-cubes" style="color: rgb(66, 226, 205)"></i>
+            <i class="fa fa-cubes" style="color: rgb(7, 56, 50)"></i>
             {{ config('Blog', 'Blog') }}
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -84,64 +86,84 @@
                         <div class="card-header" style="border-bottom: none">View</div>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('home') }}" style="text-decoration: none">
-                                    <i class="fa fa-chrome"style="color: rgb(66, 226, 205)"></i>
+                                    <i class="fa fa-home" style="color:rgb(255, 102, 0)"></i>
                                     Home
                                 </a>
                                 <li class="list-group-item" style="border-left: none; border-right: none">
                                     <a href="{{ route('categories') }}" style="text-decoration: none">
-                                        <i class="fa fa-cube" style="color: rgb(66, 226, 205)"></i>
+                                        <i class="fa fa-tag" style="color:rgb(253, 156, 45)"></i>
                                         Categories</a>
                                     </li>
                                     <li class="list-group-item" style="border-left: none; border-right: none">
                                         <a href="{{ route('tags') }}" style="text-decoration: none">
-                                           <i class="fa fa-cube" style="color: rgb(66, 226, 205)"></i>
+                                           <i class="fa fa-tags" style="color:rgb(248, 170, 81)"></i>
                                             Tags</a>
                                         </li>
+
+                                        @if(Auth::user()->admin)
                                         <li class="list-group-item" style="border-left: none; border-right: none">
                                             <a href="{{ route('users') }}" style="text-decoration: none">
-                                               <i class="fa fa-cube" style="color: rgb(66, 226, 205)"></i>
+                                               <i class="fa fa-users" style="color:rgb(248, 200, 144)"></i>
                                                 Users</a>
                                             </li>
                                             <li class="list-group-item" style="border-left: none; border-right: none">
                                                 <a href="{{ route('user.create') }}" style="text-decoration: none">
-                                                   <i class="fa fa-cube" style="color: rgb(66, 226, 205)"></i>
-                                                    New users</a>
+                                                   <i class="fa fa-user-plus" style="color:rgb(246, 216, 178)"></i>
+                                                    Add users</a>
+                                                </li>
+                                            @endif
+                                            <li class="list-group-item" style="border-left: none; border-right: none">
+                                                <a href="{{ route('user.profile') }}" style="text-decoration: none">
+                                                   <i class="fa fa-user" style="color:rgb(241, 230, 80)"></i>
+                                                    My Profile</a>
                                                 </li>
                                     <li class="list-group-item" style="border-left: none; border-right: none">
                                         <a href="{{ route('posts') }}" style="text-decoration: none" >
-                                            <i class="fa fa-cubes" style="color: rgb(66, 226, 205)"></i>
+                                            <i class="fa fa-image" style="color: rgb(251, 247, 1)"></i>
                                             Posts</a>
                                         </li>
                                         <li class="list-group-item" style="border-left: none; border-right: none">
                                             <a href="{{ route('posts.trashed') }}" style="text-decoration: none">
-                                                <i class="fa fa-ban" style="color: rgb(66, 226, 205)"></i>
+                                                <i class="fa fa-ban" style="color: rgb(238, 241, 55)"></i>
                                                 Trashed posts</a>
                                             </li>
                                         </div>
                                     </tbody>
                                 </thead>
                             </table>
-
-
+                            <br>
+                            <div class="card card-default">
+                                <div class="card-header" style="border-bottom: none">Settings</div>
+                            @if(Auth::user()->admin)
+                            <li class="list-group-item" style="border-left: none; border-right: none">
+                                <a href="{{ route('settings') }}" style="text-decoration: none">
+                                    <i class="fa fa-cog" style="color: rgb(227, 236, 185)"></i>
+                                    Settings</a>
+                                </li>
+                            @endif
+                                </li>
+                            </div>
                         <br>
                         <div class="card card-default">
                             <div class="card-header" style="border-bottom: none">Create</div>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('category.create') }}" style="text-decoration: none">
-                                    <i class="fa fa-plus-square" style="color: rgb(194, 66, 226)"></i>
+                                    <i class="fa fa-plus-square" style="color:rgb(185, 255, 185)"></i>
                                     Create new category</a>
                                 </li>
                             </li>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('post.create') }}" style="text-decoration: none">
-                                    <i class="fa fa-plus-square" style="color: rgb(194, 66, 226)"></i>
+                                    <i class="fa fa-plus-square" style="color: rgb(124, 253, 85)"></i>
                                     Create new post</a>
                                 </li>
                                 <li class="list-group-item" style="border-left: none; border-right: none">
                                     <a href="{{ route('tag.create') }}" style="text-decoration: none">
-                                        <i class="fa fa-plus-square" style="color: rgb(194, 66, 226)"></i>
+                                        <i class="fa fa-plus-square" style="color:rgb(94, 255, 0)"></i>
                                         Create new tag</a>
                                     </li>
+
+
                             </li>
                         </ul>
                     </div>
@@ -166,5 +188,9 @@
         <p class="alert alert-info">{{ Session::get('info') }}</p>
         @endif
     </script>
+@yield('scripts')
+
 </body>
 </html>
+
+
