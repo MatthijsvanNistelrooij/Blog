@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Session;
 use App\Setting;
+use App\Post;
 use Illuminate\Http\Request;
 
 class SettingsController extends Controller

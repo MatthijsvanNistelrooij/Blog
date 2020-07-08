@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-
+use App\Post;
 use Session;
 use Auth;
 use Illuminate\Http\Request;

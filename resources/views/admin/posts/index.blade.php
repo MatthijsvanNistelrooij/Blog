@@ -23,33 +23,62 @@
                 </th>
                 <tbody>
                     @if($posts->count() > 0)
-@foreach($posts as $post)
 
-<tr>
-<td>
-<img src="{{ $post->featured }}" width="150px" height="80px">
-</td>
-<td>{{ $post->title }}</td>
-<td>
-<a href="{{ route('post.edit', ['id' => $post->id])}}" class="btn btn-sm btn-info" style="color: white">Edit </i></a>
-</td>
-<td>
-<a href="{{ route('post.delete', ['id' => $post->id])}}" class="btn btn-sm btn-danger">Trash </i></a>
-</td>
-</tr>
-@endforeach
-@else
-<tr><th colspan="5" class="text-center">No posts yet</th></tr>
-@endif
+                    @foreach($posts as $post)
+
+
+                    <tr>
+
+                        <td>
+
+                            <img src="{{ $post->featured }}" width="140px" height="80px">
+
+                        </td>
+
+                        <td>{{ $post->title }}</td>
+
+                        <td>
+
+                            <a href="{{ route('post.edit', ['id' => $post->id])}}" class="btn btn-sm btn-info" style="color: white">Edit </i></a>
+
+                        </td>
+
+                        <td>
+
+                            <a href="{{ route('post.delete', ['id' => $post->id])}}" class="btn btn-sm btn-danger">Trash </i></a>
+
+                        </td>
+
+                    </tr>
+
+                    @endforeach
+
+                    @else
+
+                    <tr><th colspan="5" class="text-center">No posts yet</th></tr>
+
+                    @endif
+
                 </tbody>
+
             </thead>
+
         </table>
+
     </div>
+
 </div>
 
+
 <div class="d-flex justify-content-end mb-2" style="margin-top: 15px">
+
     <a href="{{ route('post.create') }}" class="btn btn-success float-right btn-sm">
-    Add Post
+
+        Add Post
+
+
     </a>
-    </div>
+
+</div>
+
 @stop
