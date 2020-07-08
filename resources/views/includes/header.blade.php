@@ -3,8 +3,10 @@
             <div class="header-content-wrapper">
                 <div class="logo">
                     <div class="logo-text">
-                    <div class="logo-title">{{ $title  }}</div>
-                    </div>
+                        <a href="/">
+                    <div class="logo-title">{{ $settings->site_name  }}</div>
+                </a>
+                </div>
                 </div>
 
                 <nav id="primary-menu" class="primary-menu">
@@ -21,7 +23,7 @@
 
                         @foreach($categories as $category)
                         <li>
-                        <a href="">{{ $category->name }}</a>
+                        <a href="http://blog.build/admin/posts">{{ $category->name }}</a>
                         </li>
 
                         @endforeach

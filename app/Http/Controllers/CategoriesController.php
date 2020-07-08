@@ -104,9 +104,9 @@ class CategoriesController extends Controller
         // delete all posts with categories attached when deleting
         // a category:  error : Class App\Posts not found
         //
-        foreach($category->posts as $post){
-            $post->forceDelete();
-        }
+        // foreach($category->posts as $post){
+        //     $post->forceDelete();
+        // }
 
         $category->delete();
 
