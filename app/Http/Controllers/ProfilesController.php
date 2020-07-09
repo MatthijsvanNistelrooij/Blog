@@ -76,6 +76,7 @@ class ProfilesController extends Controller
             'email' => 'required|email',
             'facebook' => 'required|url',
             'youtube' => 'required|url',
+            
          ]);
          $user = Auth::user();
          if($request->hasFile('avatar'))

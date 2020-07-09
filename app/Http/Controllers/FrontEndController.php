@@ -25,8 +25,8 @@ class FrontEndController extends Controller
         ->with('fourth_post', Post::orderBy('created_at', 'desc')->skip(3)->take(1)->get()->first())
         ->with('fifth_post', Post::orderBy('created_at', 'desc')->skip(4)->take(1)->get()->first())
         ->with('sixth_post', Post::orderBy('created_at', 'desc')->skip(5)->take(1)->get()->first())
-        ->with('lifestyle', Category::find(1))
-        ->with('Word', Category::find(4))
+        ->with('Lifestyle', Category::find(1))
+        ->with('Living', Category::find(5))
         ->with('settings', Setting::first());
     }
 
