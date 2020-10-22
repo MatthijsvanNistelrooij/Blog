@@ -75,6 +75,11 @@
 </nav>
 
 <main class="py-4">
+    @if(session()->has('success'))
+    <div class="alert alert-success">
+        {{ session()->get('success') }}
+    </div>
+    @endif
     <div class="container">
         <div class="row">
 
@@ -86,45 +91,45 @@
                         <div class="card-header" style="border-bottom: none">View</div>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('home') }}" style="text-decoration: none">
-                                    <i class="fa fa-home" style="color:rgb(255, 102, 0)"></i>
+                                    <i class="fa fa-home" style="color:rgb(224, 224, 224)"></i>
                                     Home
                                 </a>
                                 <li class="list-group-item" style="border-left: none; border-right: none">
                                     <a href="{{ route('categories') }}" style="text-decoration: none">
-                                        <i class="fa fa-tag" style="color:rgb(253, 156, 45)"></i>
+                                        <i class="fa fa-tag" style="color:rgb(233, 233, 233)"></i>
                                         Categories</a>
                                     </li>
                                     <li class="list-group-item" style="border-left: none; border-right: none">
                                         <a href="{{ route('tags') }}" style="text-decoration: none">
-                                           <i class="fa fa-tags" style="color:rgb(248, 170, 81)"></i>
+                                           <i class="fa fa-tags" style="color:rgb(211, 211, 211)"></i>
                                             Tags</a>
                                         </li>
 
                                         @if(Auth::user()->admin)
                                         <li class="list-group-item" style="border-left: none; border-right: none">
                                             <a href="{{ route('users') }}" style="text-decoration: none">
-                                               <i class="fa fa-users" style="color:rgb(248, 200, 144)"></i>
+                                               <i class="fa fa-users" style="color: rgb(197, 197, 197)"></i>
                                                 Users</a>
                                             </li>
                                             <li class="list-group-item" style="border-left: none; border-right: none">
                                                 <a href="{{ route('user.create') }}" style="text-decoration: none">
-                                                   <i class="fa fa-user-plus" style="color:rgb(246, 216, 178)"></i>
+                                                   <i class="fa fa-user-plus" style="color:rgb(187, 187, 187)"></i>
                                                     Add users</a>
                                                 </li>
                                             @endif
                                             <li class="list-group-item" style="border-left: none; border-right: none">
                                                 <a href="{{ route('user.profile') }}" style="text-decoration: none">
-                                                   <i class="fa fa-user" style="color:rgb(241, 230, 80)"></i>
+                                                   <i class="fa fa-user" style="color:rgb(167, 167, 167)"></i>
                                                     My Profile</a>
                                                 </li>
                                     <li class="list-group-item" style="border-left: none; border-right: none">
                                         <a href="{{ route('posts') }}" style="text-decoration: none" >
-                                            <i class="fa fa-image" style="color: rgb(251, 247, 1)"></i>
+                                            <i class="fa fa-cube" style="color: rgb(124, 124, 124)"></i>
                                             Posts</a>
                                         </li>
                                         <li class="list-group-item" style="border-left: none; border-right: none">
                                             <a href="{{ route('posts.trashed') }}" style="text-decoration: none">
-                                                <i class="fa fa-ban" style="color: rgb(238, 241, 55)"></i>
+                                                <i class="fa fa-ban" style="color:rgb(80, 80, 80)"></i>
                                                 Trashed posts</a>
                                             </li>
                                         </div>
@@ -137,7 +142,7 @@
                             @if(Auth::user()->admin)
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('settings') }}" style="text-decoration: none">
-                                    <i class="fa fa-cog" style="color: rgb(227, 236, 185)"></i>
+                                    <i class="fa fa-cog" style="color: rgb(70, 70, 70)"></i>
                                     Settings</a>
                                 </li>
                             @endif
@@ -148,18 +153,18 @@
                             <div class="card-header" style="border-bottom: none">Create</div>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('category.create') }}" style="text-decoration: none">
-                                    <i class="fa fa-plus-square" style="color:rgb(185, 255, 185)"></i>
+                                    <i class="fa fa-plus-square" style="color:rgb(65, 65, 65)"></i>
                                     Create new category</a>
                                 </li>
                             </li>
                             <li class="list-group-item" style="border-left: none; border-right: none">
                                 <a href="{{ route('post.create') }}" style="text-decoration: none">
-                                    <i class="fa fa-plus-square" style="color: rgb(124, 253, 85)"></i>
+                                    <i class="fa fa-plus-square" style="color:rgb(49, 49, 49)"></i>
                                     Create new post</a>
                                 </li>
                                 <li class="list-group-item" style="border-left: none; border-right: none">
                                     <a href="{{ route('tag.create') }}" style="text-decoration: none">
-                                        <i class="fa fa-plus-square" style="color:rgb(94, 255, 0)"></i>
+                                        <i class="fa fa-plus-square" style="color: rgb(8, 8, 8)"></i>
                                         Create new tag</a>
                                     </li>
 

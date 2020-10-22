@@ -13,11 +13,11 @@
                     Tag Name
                 </th>
                 <th>
-                    <i class="fa fa-edit"></i>
+Edit
                 </th>
                 <th>
-                    <i class="fa fa-trash"></i>
-                </th>
+Delete
+               </th>
                 <tbody>
                     @if($tags->count() > 0 )
                     @foreach($tags as $tag)
@@ -27,12 +27,14 @@
                         </td>
                         <td>
                         <a href="{{ route('tag.edit', ['id' => $tag->id ]) }}" class="btn btn-sm btn-info" style="color:white">
-                     Edit
+                            <i class="fa fa-pencil"></i>
+
                         </a>
                     </td>
                     <td>
                         <a href="{{ route('tag.delete', ['id' => $tag->id ]) }}" class="btn btn-sm btn-danger">
-                      Delete
+                            <i class="fa fa-trash"></i>
+
                         </a>
                     </td>
                     </tr>

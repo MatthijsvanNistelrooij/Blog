@@ -3,7 +3,8 @@
 
 @section('content')
 
-    <div class="stunning-header stunning-header-bg-lightviolet">
+    <div class="stunning-header stunning-header-bg-lightviolet"
+    style="background-image: public/img/virtual-backgroun.jpg">
         <div class="stunning-header-content">
         <h1 class="stunning-header-title"> Category: {{ $category->name }} </h1>
         </div>

@@ -16,10 +16,10 @@
                    title
                 </th>
                 <th>
-                    <i class="fa fa-edit"></i>
+  Edit
                 </th>
                 <th>
-                    <i class="fa fa-trash"></i>
+                    Trash
                 </th>
                 <tbody>
                     @if($posts->count() > 0)
@@ -39,13 +39,19 @@
 
                         <td>
 
-                            <a href="{{ route('post.edit', ['id' => $post->id])}}" class="btn btn-sm btn-info" style="color: white">Edit </i></a>
+                            <a href="{{ route('post.edit', ['id' => $post->id])}}" class="btn btn-sm btn-info" style="color: white">
+                                <i class="fa fa-pencil"></i>
+                            </i></a>
 
                         </td>
 
                         <td>
 
-                            <a href="{{ route('post.delete', ['id' => $post->id])}}" class="btn btn-sm btn-danger">Trash </i></a>
+                            <a href="{{ route('post.delete', ['id' => $post->id])}}" class="btn btn-sm btn-danger">
+
+                                <i class="fa fa-trash"></i>
+
+                            </i></a>
 
                         </td>
 

@@ -13,10 +13,10 @@
                     Category Name
                 </th>
                 <th>
-                    <i class="fa fa-edit"></i>
+Edit
                 </th>
                 <th>
-                    <i class="fa fa-trash"></i>
+Delete
                 </th>
                 <tbody>
                     @if($categories->count() > 0 )
@@ -27,12 +27,14 @@
                         </td>
                         <td>
                         <a href="{{ route('category.edit', ['id' => $category->id ]) }}" class="btn btn-sm btn-info" style="color:white">
-                     Edit
+                            <i class="fa fa-pencil"></i>
+
                         </a>
                     </td>
                     <td>
                         <a href="{{ route('category.delete', ['id' => $category->id ]) }}" class="btn btn-sm btn-danger">
-                      Delete
+                            <i class="fa fa-trash"></i>
+
                         </a>
                     </td>
                     </tr>
